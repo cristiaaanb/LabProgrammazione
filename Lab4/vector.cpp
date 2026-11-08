@@ -25,6 +25,24 @@ class myVector{
             return elem[i];
         }
 
+        double& at(int i){
+            if(i < 0 || i >= sz){
+                throw Invalid{};
+            }
+            return elem[i];
+        }
+
+        double at(int i) const{
+            if(i < 0 || i >= sz){
+                throw Invalid{};
+            }
+            return elem[i];
+        }
+
+        void reserve(int newalloc);
+        void push_back(double d);
+        void pop_back();
+
         class Invalid{};
         myVector();
 
@@ -68,6 +86,35 @@ myVector::myVector(int s,int d){
         elem[i] = 0.0;
     }
 
+}
+
+void myVector::reserve(int newalloc){
+    if(newalloc <= space) return;
+
+    double* p = new double[newalloc];
+    for(int i = 0; i < sz; ++i){
+        p[i] = elem[i];
+    }
+    delete[] elem;
+    elem = p;
+    space = newalloc;
+}
+
+void myVector::push_back(double d){
+    if(space == 0){
+        reserve(8);
+    }
+    else if(sz == space){
+        reserve(2 * space);
+    }
+    elem[sz] = d;
+    sz++;
+}
+
+void myVector::pop_back(){
+    if(sz > 0){
+        sz--;
+    }
 }
 
 int main(){

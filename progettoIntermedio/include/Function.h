@@ -1,143 +1,267 @@
-#ifndef Function
-#define Function
-#include Point.h
-#include math.h
-
-class Function{
+class Function1{
 
     public:
         
+        Function();
         Function(point p);
-        explicit Function();
-        ~Function();
 
-        point getMin();
+        point  getP() const;
+        point  getMin() const;
+
         double Quota(point p);
 
     private:
 
         point p;    //punto p
-        point min;
+        point min;  //punto di minimo
 
+};
+
+point Function1::getP()const{
+    return p;
+}
+point Function1::getMin()const{
+    return min;
 }
 
-Function::Function(point p){
+Function1::Function()p{0,0}, min{0,0}{}
+Function1::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p; 
-    double Quota(point p){
-
-        double quota = p.getX + p.getY;
-        return quota;
-
-    }
-
+double Function1::Quota(point p){
+    double quota = (pow(p.getX, 2) + pow(p.getY,2))/2;
+    return quota;
 }
 
-Function::func1(point p,point min){
+class Function2{
 
-    p = this.p;
-    min = this.min;
-    
-    double Quota(point p){
+    public:
+        
+        Function();
+        Function(point p);
 
-        double quota = (pow(p.getX, 2) + pow(p.getY,2))/2;
-        return quota;
+        point  getP() const;
+        point  getMin() const;
 
-    }
-    
-    point getMin(){
-        return min;
-    }
+        double Quota(point p);
 
+    private:
+
+        point p;    //punto p
+        point min;  //punto di minimo
+
+};
+
+point Function2::getP()const{
+    return p;
+}
+point Function2::getMin()const{
+    return min;
 }
 
-Function::func2(point p){
+Function2::Function()p{0,0}, min{0,0}{}
+Function2::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p;
-    
-    double Quota(point p){
-
+double Function2::Quota(point p){
         double quota = (pow(p.getX, 2) + 16*pow(p.getY,2))/2;
         return quota;
+}
+class Function3{
 
-    }
+    public:
+        
+        Function();
+        Function(point p);
 
+        point  getP() const;
+        point  getMin() const;
+
+        double Quota(point p);
+
+    private:
+
+        point p;    //punto p
+        point min;  //punto di minimo
+
+};
+
+point Function3::getP()const{
+    return p;
+}
+point Function3::getMin()const{
+    return min;
 }
 
-Function::func3(point p){
+Function3::Function()p{0,0}, min{0,0}{}
+Function3::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p;
-    
-    double Quota(point p){
-
+double Function3::Quota(point p){
         double quota = pow(pow(p.getX, 2) - 1, 2) + pow(p.getY, 2);
         return quota;
+}
+class Function4{
 
-    }
+    public:
+        
+        Function();
+        Function(point p);
 
+        point  getP() const;
+        point  getMin() const;
+
+        double Quota(point p);
+
+    private:
+
+        point p;    //punto p
+        point min;  //punto di minimo
+
+};
+
+point Function4::getP()const{
+    return p;
+}
+point Function4::getMin()const{
+    return min;
 }
 
-Function::func4(point p){
+Function4::Function()p{0,0}, min{0,0}{}
+Function4::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p;
-    
-    double Quota(point p){
+double Function4::Quota(point p){
+    double quota = pow(pow(p.getX, 2) - 1, 2) + pow((p.getX - 1), 2)/5 + pow(p.getY, 2);
+    return quota;
+}
+class Function5{
 
-        double quota = pow(pow(p.getX, 2) - 1, 2) + pow((p.getX - 1), 2)/5 + pow(p.getY, 2);
-        return quota;
+    public:
+        
+        Function();
+        Function(point p);
 
-    }
+        point  getP() const;
+        point  getMin() const;
 
+        double Quota(point p);
+
+    private:
+
+        point p;    //punto p
+        point min;  //punto di minimo
+
+};
+
+point Function5::getP()const{
+    return p;
+}
+point Function5::getMin()const{
+    return min;
 }
 
-Function::func5(point p){
+Function5::Function()p{0,0}, min{0,0}{}
+Function5::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p;
-    
-    double Quota(point p){
+double Function5::Quota(point p){
+    double quota = 4*( pow(sinh(p.getX/2),2)) + pow(p.getY, 2);
+    return quota;
+}
+class Function6{
 
-        double quota = 4*( pow(sinh(p.getX/2),2)) + pow(p.getY, 2);
-        return quota;
+    public:
+        
+        Function();
+        Function(point p);
 
-    }
+        point  getP() const;
+        point  getMin() const;
 
+        double Quota(point p);
+
+    private:
+
+        point p;    //punto p
+        point min;  //punto di minimo
+
+};
+
+point Function6::getP()const{
+    return p;
+}
+point Function6::getMin()const{
+    return min;
 }
 
-Function::func6(point p){
+Function6::Function()p{0,0}, min{0,0}{}
+Function6::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p;
-    
-    double Quota(point p){
+double Function6::Quota(point p){
+    double quota = log(1 + pow(p.getX, 2) + pow(p.getY,2));
+    return quota;
+}
+class Function7{
 
-        double quota = log(1 + pow(p.getX, 2) + pow(p.getY,2));
-        return quota;
+    public:
+        
+        Function();
+        Function(point p);
 
-    }
+        point  getP() const;
+        point  getMin() const;
 
+        double Quota(point p);
+
+    private:
+
+        point p;    //punto p
+        point min;  //punto di minimo
+
+};
+
+point Function7::getP()const{
+    return p;
+}
+point Function7::getMin()const{
+    return min;
 }
 
-Function::func7(point p){
+Function7::Function()p{0,0}, min{0,0}{}
+Function7::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p;
-    
-    double Quota(point p){
+double Function7::Quota(point p){
+    double quota = 1 - exp(-(pow(p.getX, 2) + pow(p.getY,2)));
+    return quota;
+}
+class Function8{
 
-        double quota = 1 - exp(-(pow(p.getX, 2) + pow(p.getY,2)));
-        return quota;
+    public:
+        
+        Function();
+        Function(point p);
 
-    }
+        point  getP() const;
+        point  getMin() const;
 
+        double Quota(point p);
+
+    private:
+
+        point p;    //punto p
+        point min;  //punto di minimo
+
+};
+
+point Function8::getP()const{
+    return p;
+}
+point Function8::getMin()const{
+    return min;
 }
 
-Function::func8(point p){
+Function8::Function()p{0,0}, min{0,0}{}
+Function8::Function(point p,point min)p{p.getX(),p.getY()}, min{min.getX(),min.getY()}{}
 
-    p = this.p;
-    
-    double Quota(point p){
-
-        double quota = 2 - cos(p.getX*3.14) - cos(p.getY*3.14);
-        return quota;
-
-    }
-
+double Function8::Quota(point p){
+    double quota = 2 - cos(p.getX*3.14) - cos(p.getY*3.14);
+    return quota;
 }
+
+#endif

@@ -139,13 +139,11 @@ int main(){
 
     Point p0{x0,y0};
     Point min{Xmin, Ymin};
-
-    double T = normaGrad(p0);
-
+    double T = 0.000001;
     while(k<N && !trovato){
         
         p0 = gradientDescent(a, p0);
-        std::cout<<function(p0)<<endl;
+
         if(k%10==0){
 
             std::cout<<"iterazione numero: "<<k<<
@@ -157,7 +155,7 @@ int main(){
         
         k++;
 
-        if(p0.getX()==min.getX() && p0.getY()==min.getY()){
+        if((p0.getX()==min.getX() && p0.getY()==min.getY()) || (T>normaGrad(p0))){
             trovato = true;
             std::cout<<"minimo trovato all'iterazione numero: "<<k<<endl;
         }
@@ -166,3 +164,6 @@ int main(){
     }
     return 0;
 }
+
+
+#endif

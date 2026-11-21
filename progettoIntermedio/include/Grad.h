@@ -1,5 +1,5 @@
-#ifndef Grad
-#define Grad
+#ifndef Grad_h
+#define Grad_h
 #include "Point.h"
 #include <cmath>
 

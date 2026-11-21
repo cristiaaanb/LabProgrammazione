@@ -1,5 +1,5 @@
-#ifndef Function
-#define Function
+#ifndef Function_h
+#define Function_h
 #include "Point.h"
 #include <cmath>
 

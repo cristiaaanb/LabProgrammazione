@@ -1,5 +1,5 @@
-#ifndef Point
-#define Point
+#ifndef Point_h
+#define Point_h
 #include <iostream>
 class Point{
 

@@ -1,5 +1,5 @@
-#ifndef gradientDescent
-#define gradientDescent
+#ifndef gradientDescent_h
+#define gradientDescent_h
 #include <iostream>
 #include <cmath>
 #include "Point.h"

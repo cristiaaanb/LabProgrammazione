@@ -3,7 +3,7 @@
 #include "Point.h"
 #include "Function.h"
 #include "Grad.h"
-#include "gradientDescent.h"
+#include "GradientDescent.h"
 using namespace std;
 
 int main(){

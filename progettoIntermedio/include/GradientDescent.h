@@ -1,130 +1,42 @@
-#ifndef GradientDescent
-#define GradientDescent
-#include Function.h
-#include Grad.h
-#include point.h
+#ifndef gradientDescent
+#define gradientDescent
+#include <iostream>
+#include <cmath>
+#include "Point.h"
 
-
-class GradientDescent{
-
-    public:
-        
-        GradientDescent();
-        explicit GradientDescent();
-        ~GradientDescent();
-
-        point Descent(point p, Function f);
-        int getN();
-
-    private:
-
-        double a;       //passo
-        point p0;       //posizione iniziale
-        double T;       //soglia norma del gradiente
-
+template <typename g>
+double normaGrad(g gradient, Point p){
+    Point gr = gradient.Gradient(p);
+    double norma = std::sqrt(std::pow(gr.getX(),2) + std::pow(gr.getY(),2));
+    return norma;
 }
 
-GradientDescent::Descent1(double a, point p0){
-
-    N=this.N;
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
+template <typename f, typename g>
+void gradientDescent(f function, g gradient, double a, Point p, int n, double T){
+    int k=0;
+    bool trovato=false;
+    while(k<n && !trovato){
         
-        p0 = p0 - a*Grad1(p0);
-        return p0;
+        p = p - gradient.Gradient(p)*a;
+
+        if(k%10==0){
+
+            std::cout<<"iterazione numero: "<<k<<
+            " - punto p al passo k-esimo: ("<< p.getX()<<","<<p.getY()<<
+            ") - funzione nel punto p al passo k-esimo: "<<function.Quota(p)<<
+            " - distanza (errore) dal minimo: "<< (function.Quota(p) - function.Quota(function.getMin()))<<
+            " - norma : " << normaGrad(gradient, p) << std::endl;
+        }
+        
+        k++;
+
+        if(T>normaGrad(gradient, p)){
+            trovato = true;
+            std::cout<<"minimo trovato all'iterazione numero: "<<k<<std::endl;
+        }
+        
     }
 
 }
 
-GradientDescent::Descent2(double a, point p0){
-
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
-        
-        p0 = p0 - a*Grad2(p0);
-        return p0;
-    }
-
-}
-
-GradientDescent::Descent3(double a, point p0){
-
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
-        
-        p0 = p0 - a*Grad3(p0);
-        return p0;
-    }
-
-}
-
-GradientDescent::Descent4(double a, point p0){
-
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
-        
-        p0 = p0 - a*Grad4(p0);
-        return p0;
-    }
-
-}
-
-GradientDescent::Descent5(double a, point p0){
-
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
-        
-        p0 = p0 - a*Grad5(p0);
-        return p0;
-    }
-
-}
-
-GradientDescent::Descent6(double a, point p0){
-
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
-        
-        p0 = p0 - a*Grad6(p0);
-        return p0;
-    }
-
-}
-
-GradientDescent::Descent7(double a, point p0){
-
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
-        
-        p0 = p0 - a*Grad7(p0);
-        return p0;
-    }
-
-}
-
-GradientDescent::Descent8(double a, point p0){
-
-    a=this.a;
-    p0 = this.p0;
-    
-    point Descent(point p, func1){
-        
-        p0 = p0 - a*Grad8(p0);
-        return p0;
-    }
-
-}
+#endif
